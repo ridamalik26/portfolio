@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { hero, site } from "@/data/portfolio";
+import { accentText } from "@/lib/accent";
 import Avatar from "./Avatar";
 import { TechIcon, UiIcon } from "./icons";
 
@@ -75,16 +76,14 @@ export default function Hero() {
             </a>
           </motion.div>
 
-          <motion.ul
-            {...fade(0.32)}
-            className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-5 sm:gap-x-10 lg:justify-start"
-          >
+          <motion.ul {...fade(0.32)} className="mt-6 flex flex-wrap justify-center gap-2.5 lg:justify-start">
             {hero.stats.map((s) => (
-              <li key={s.label}>
-                <span className="block font-display text-xl leading-none text-accent-fg sm:text-3xl">
-                  {s.value}
-                </span>
-                <span className="mt-1.5 block text-sm text-muted">{s.label}</span>
+              <li
+                key={s.label}
+                className="inline-flex items-center gap-2 rounded-full border border-foreground/20 bg-transparent px-3.5 py-2 text-sm font-medium text-foreground"
+              >
+                <UiIcon name={s.icon} size={16} className={accentText[s.color]} />
+                {s.label}
               </li>
             ))}
           </motion.ul>

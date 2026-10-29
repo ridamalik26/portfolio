@@ -50,11 +50,29 @@ export const site = {
   avatarAlt: "Illustrated portrait of Rida Malik",
 };
 
+export type Testimonial = {
+  name: string;
+  role: string;
+  company: string;
+  quote: string;
+};
+
+// Add real testimonials here. While this array is empty, the Testimonials
+// section and its navbar link are hidden.
+export const testimonials: Testimonial[] = [];
+
+export const testimonialsSection = {
+  title: "Testimonials",
+};
+
 export const nav = [
   { label: "About", href: "/#about" },
   { label: "Experience", href: "/experience" },
   { label: "Projects", href: "/#projects" },
   { label: "Skills", href: "/#skills" },
+  ...(testimonials.length > 0
+    ? [{ label: "Testimonials", href: "/#testimonials" }]
+    : []),
   { label: "Contact", href: "/#contact" },
 ];
 
@@ -63,10 +81,10 @@ export const hero = {
   greeting: "Hi, I'm",
   gradientName: "Rida Malik",
   stats: [
-    { value: "10+", label: "Projects" },
-    { value: "3", label: "Teams" },
-    { value: "AI + Full-Stack", label: "Focus" },
-  ],
+    { icon: "rocket", label: "10+ Projects", color: "pink" },
+    { icon: "bot", label: "AI + Full-Stack", color: "lavender" },
+    { icon: "code", label: "Python to Production", color: "mint" },
+  ] as { icon: string; label: string; color: Accent }[],
   bubbles: ["Python", "Flask", "Next.js", "Flutter"],
   role: "AI Automation & Full-Stack Developer",
   motto: "Turning messy workflows into smart systems.",
@@ -580,22 +598,6 @@ export const certifications = {
 
 export const contact = {
   heading: "Let's build something",
-  form: {
-    title: "Send a message",
-    nameLabel: "Name",
-    emailLabel: "Email",
-    messageLabel: "Message",
-    namePlaceholder: "Your name",
-    emailPlaceholder: "you@example.com",
-    messagePlaceholder: "Tell me about your project or role",
-    submit: "Send Message",
-    sending: "Sending",
-    success: "Thanks! Your message was sent. I will get back to you soon.",
-    error:
-      "Something went wrong and your message was not sent. Please try again or email me directly.",
-    notConfigured:
-      "The contact form is not set up yet. Please email me directly.",
-  },
   cards: [
     {
       id: "email",
