@@ -33,7 +33,8 @@ export const site = {
   name: "Rida Malik",
   heroName: "RIDA MALIK",
   logo: "RM",
-  title: "Rida Malik | AI & Automation Developer",
+  title: "Rida Malik",
+  shareTitle: "Rida Malik | AI & Automation Developer",
   description:
     "Rida Malik is an AI & Automation Developer building LLM-powered apps, workflow automations, and full-stack products with Python, Flask, Next.js, and Flutter.",
   url: "https://ridamalik.vercel.app",

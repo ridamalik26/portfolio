@@ -21,8 +21,8 @@ export default function Avatar() {
     <img
       src={site.avatar}
       alt={site.avatarAlt}
-      width={600}
-      height={800}
+      width={356}
+      height={648}
       fetchPriority="high"
       onError={() => setFailed(true)}
       className="mx-auto h-auto w-full object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)]"

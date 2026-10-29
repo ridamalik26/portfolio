@@ -14,7 +14,6 @@ npm run build
 
 ## Files to add to `public/`
 
-- `avatar.png` (transparent background)
 - `Rida_Malik_CV.pdf`
 - `projects/smart-solar-advisor.png`
 - `projects/multi-vendor-ecommerce.png`
@@ -30,3 +29,6 @@ Missing project images show a pink placeholder with the project name.
 ## Deploy
 
 Import the repo on Vercel. No extra configuration is needed.
+
+
+The avatar and browser icons are already generated. To regenerate the icons after changing public/avatar.png, run `node scripts/generate-icons.mjs`.
