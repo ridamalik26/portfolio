@@ -50,19 +50,33 @@ export const site = {
   avatarAlt: "Illustrated portrait of Rida Malik",
 };
 
-export type Testimonial = {
-  name: string;
-  role: string;
-  company: string;
-  quote: string;
-};
-
-// Add real testimonials here. While this array is empty, the Testimonials
-// section and its navbar link are hidden.
-export const testimonials: Testimonial[] = [];
+// Testimonials are loaded from Supabase. The section and its navbar link are
+// hidden unless both public env variables are set.
+export const testimonialsEnabled = Boolean(
+  process.env.NEXT_PUBLIC_SUPABASE_URL &&
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+);
 
 export const testimonialsSection = {
   title: "Testimonials",
+  emptyTitle: "Be the first to leave a note",
+  emptyText: "Worked with me or liked a project? Share a few words below.",
+  loadError: "Notes could not be loaded right now. Please try again later.",
+  formTitle: "Leave a note",
+  nameLabel: "Name",
+  roleLabel: "Role or company (optional)",
+  messageLabel: "Message",
+  namePlaceholder: "Your name",
+  rolePlaceholder: "e.g. Product Manager, Acme",
+  messagePlaceholder: "Share a few words about working with me",
+  submit: "Send",
+  sending: "Sending",
+  success: "Thank you! Your message will appear once it is approved.",
+  rateLimit: "Please wait a minute before sending another note.",
+  invalid:
+    "Please enter your name and a message of at least 10 characters.",
+  error: "Something went wrong and your note was not sent. Please try again.",
+  limits: { name: 60, role: 80, messageMin: 10, messageMax: 400 },
 };
 
 export const nav = [
@@ -70,10 +84,10 @@ export const nav = [
   { label: "Experience", href: "/experience" },
   { label: "Projects", href: "/#projects" },
   { label: "Skills", href: "/#skills" },
-  ...(testimonials.length > 0
+  { label: "Contact", href: "/#contact" },
+  ...(testimonialsEnabled
     ? [{ label: "Testimonials", href: "/#testimonials" }]
     : []),
-  { label: "Contact", href: "/#contact" },
 ];
 
 export const hero = {
@@ -83,7 +97,7 @@ export const hero = {
   stats: [
     { icon: "rocket", label: "10+ Projects", color: "pink" },
     { icon: "bot", label: "AI + Full-Stack", color: "lavender" },
-    { icon: "code", label: "Python to Production", color: "mint" },
+    { icon: "code", label: "Web, Mobile and AI", color: "mint" },
   ] as { icon: string; label: string; color: Accent }[],
   bubbles: ["Python", "Flask", "Next.js", "Flutter"],
   role: "AI Automation & Full-Stack Developer",
@@ -597,14 +611,17 @@ export const certifications = {
 };
 
 export const contact = {
+  email: "malikrida406@gmail.com",
+  copyLabel: "Copy email address",
+  copiedLabel: "Copied",
   heading: "Let's build something",
   cards: [
     {
       id: "email",
       label: "Email",
       value: "malikrida406@gmail.com",
-      href: "mailto:malikrida406@gmail.com",
-      external: false,
+      href: "https://mail.google.com/mail/?view=cm&to=malikrida406@gmail.com",
+      external: true,
     },
     {
       id: "linkedin",
