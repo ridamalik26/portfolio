@@ -47,7 +47,7 @@ export default function Contact() {
                   >
                     {c.label}
                   </a>
-                  <div className="mt-0.5 flex flex-wrap items-center gap-x-2 gap-y-1">
+                  <div className="mt-0.5 flex min-h-8 flex-wrap items-center gap-x-2 gap-y-1">
                     <span className="break-all text-sm text-muted">{c.value}</span>
                     <CopyEmail address={contact.email} />
                   </div>
@@ -62,7 +62,7 @@ export default function Contact() {
                 <Badge id={c.id} />
                 <span className="mt-6">
                   <span className="block text-lg font-bold text-foreground">{c.label}</span>
-                  <span className="mt-0.5 block break-all text-sm text-muted">{c.value}</span>
+                  <span className="mt-0.5 flex min-h-8 items-center break-all text-sm text-muted">{c.value}</span>
                 </span>
               </a>
             )}
