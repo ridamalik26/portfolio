@@ -32,3 +32,19 @@ Import the repo on Vercel. No extra configuration is needed.
 
 
 The avatar and browser icons are already generated. To regenerate the icons after changing public/avatar.png, run `node scripts/generate-icons.mjs`.
+
+## Testimonials (Supabase)
+
+Visitors can leave a note that appears after you approve it.
+
+1. Create a project at supabase.com and run `supabase/testimonials.sql` in the SQL editor.
+2. Copy the project URL and anon key into `.env.local` (see `.env.example`) and into the Environment Variables on Vercel:
+
+```
+NEXT_PUBLIC_SUPABASE_URL=...
+NEXT_PUBLIC_SUPABASE_ANON_KEY=...
+```
+
+3. To publish a note, open the `testimonials` table in the Supabase dashboard and set `approved` to true.
+
+Without these variables the Testimonials section and its navbar link are hidden.
