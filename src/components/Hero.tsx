@@ -77,11 +77,11 @@ export default function Hero() {
 
           <motion.ul
             {...fade(0.32)}
-            className="mt-8 flex flex-wrap justify-center gap-x-10 gap-y-5 lg:justify-start"
+            className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-5 sm:gap-x-10 lg:justify-start"
           >
             {hero.stats.map((s) => (
               <li key={s.label}>
-                <span className="block font-display text-2xl leading-none text-accent-fg sm:text-3xl">
+                <span className="block font-display text-xl leading-none text-accent-fg sm:text-3xl">
                   {s.value}
                 </span>
                 <span className="mt-1.5 block text-sm text-muted">{s.label}</span>
