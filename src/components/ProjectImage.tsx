@@ -33,7 +33,7 @@ export default function ProjectImage({
           className="flex h-full w-full items-center justify-center bg-gradient-to-br from-accent/25 via-lavender/15 to-transparent p-4 text-center"
         >
           <span
-            className={`font-display uppercase leading-tight text-accent ${compact ? "text-base" : "text-2xl"}`}
+            className={`font-display uppercase leading-tight text-accent-fg ${compact ? "text-base" : "text-2xl"}`}
           >
             {name}
           </span>

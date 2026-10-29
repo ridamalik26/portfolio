@@ -15,7 +15,7 @@ const bubblePos = [
   "left-[2%] bottom-[22%]",
   "right-[4%] bottom-[6%]",
 ];
-const bubbleColor = ["text-peach", "text-foreground", "text-foreground", "text-lavender"] as const;
+const bubbleColor = ["text-peach-fg", "text-foreground", "text-foreground", "text-lavender-fg"] as const;
 
 export default function Hero() {
   const reduce = useReducedMotion();
@@ -35,7 +35,7 @@ export default function Hero() {
         <div className="text-center lg:text-left">
           <motion.p
             {...fade(0)}
-            className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3.5 py-1.5 text-xs font-semibold text-accent sm:text-sm"
+            className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3.5 py-1.5 text-xs font-semibold text-accent-fg sm:text-sm"
           >
             <UiIcon name="sparkles" size={14} />
             {hero.badge}
@@ -50,10 +50,10 @@ export default function Hero() {
             <span className="text-gradient block">{hero.gradientName}</span>
           </motion.h1>
 
-          <motion.p {...fade(0.16)} className="mt-4 text-xl font-semibold text-lavender">
+          <motion.p {...fade(0.16)} className="mt-4 text-xl font-semibold text-lavender-fg">
             {hero.role}
           </motion.p>
-          <motion.p {...fade(0.2)} className="mt-1 text-base font-medium text-accent">
+          <motion.p {...fade(0.2)} className="mt-1 text-base font-medium text-accent-fg">
             {hero.motto}
           </motion.p>
           <motion.p
@@ -64,13 +64,13 @@ export default function Hero() {
           </motion.p>
 
           <motion.div {...fade(0.28)} className="mt-6 flex flex-wrap justify-center gap-3 lg:justify-start">
-            <a href="#projects" className={`${btn} bg-accent text-background hover:bg-accent-deep`}>
+            <a href="#projects" className={`${btn} bg-accent text-on-accent hover:bg-accent-deep`}>
               {hero.primaryCta}
             </a>
             <a
               href={site.resume}
               download
-              className={`${btn} border border-border text-foreground hover:border-accent hover:text-accent`}
+              className={`${btn} border border-border text-foreground hover:border-accent hover:text-accent-fg`}
             >
               {hero.secondaryCta}
             </a>
@@ -91,12 +91,12 @@ export default function Hero() {
           </motion.ul>
         </div>
 
-        <motion.div {...fade(0.15)} className="relative mx-auto w-full max-w-[430px]">
+        <motion.div {...fade(0.15)} className="relative mx-auto w-full max-w-[430px] xl:max-w-[500px]">
           <div
             aria-hidden="true"
             className="blob absolute inset-0 scale-105 bg-gradient-to-br from-accent/45 via-lavender/35 to-mint/20 blur-3xl"
           />
-          <div className="blob relative flex aspect-square w-full items-end justify-center overflow-hidden border border-white/10 bg-gradient-to-br from-accent/30 via-lavender/25 to-card">
+          <div className="blob relative flex aspect-square w-full items-end justify-center overflow-hidden border border-foreground/10 bg-gradient-to-br from-accent/30 via-lavender/25 to-card">
             <Avatar className="h-[96%] w-auto" />
           </div>
 

@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
-:root {
+:root,
+.dark {
   --background: #141416;
   --card: #1f1f22;
   --border: #2c2c30;
@@ -11,8 +12,37 @@
   --lavender: #b8a9e8;
   --mint: #8fd6c0;
   --peach: #f2c48d;
+  /* readable text variants (same as the base color in dark) */
+  --accent-fg: #e8a9b8;
+  --lavender-fg: #b8a9e8;
+  --mint-fg: #8fd6c0;
+  --peach-fg: #f2c48d;
+  --on-accent: #141416;
+  --glow: rgba(232, 169, 184, 0.35);
+  --overlay: rgba(0, 0, 0, 0.75);
+  color-scheme: dark;
 }
 
+.light {
+  --background: #faf7f8;
+  --card: #ffffff;
+  --border: #ece4e7;
+  --foreground: #1f1f23;
+  --muted: #5b5b66;
+  --accent: #c9738a;
+  --accent-deep: #d98298;
+  --lavender: #8e7cd6;
+  --mint: #3fa68a;
+  --peach: #d9924a;
+  --accent-fg: #a5506a;
+  --lavender-fg: #6a58c0;
+  --mint-fg: #1f7a62;
+  --peach-fg: #a4601f;
+  --on-accent: #1f1f23;
+  --glow: rgba(201, 115, 138, 0.3);
+  --overlay: rgba(31, 31, 35, 0.5);
+  color-scheme: light;
+}
 @theme inline {
   --color-background: var(--background);
   --color-card: var(--card);
@@ -24,6 +54,11 @@
   --color-lavender: var(--lavender);
   --color-mint: var(--mint);
   --color-peach: var(--peach);
+  --color-accent-fg: var(--accent-fg);
+  --color-lavender-fg: var(--lavender-fg);
+  --color-mint-fg: var(--mint-fg);
+  --color-peach-fg: var(--peach-fg);
+  --color-on-accent: var(--on-accent);
   --font-sans: var(--font-inter), system-ui, sans-serif;
   --font-display: var(--font-archivo), Impact, sans-serif;
 }
@@ -31,7 +66,6 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5rem;
-  color-scheme: dark;
 }
 
 body {
@@ -42,7 +76,7 @@ body {
 
 ::selection {
   background: var(--accent);
-  color: #141416;
+  color: var(--on-accent);
 }
 
 :focus-visible {
@@ -61,18 +95,18 @@ body {
 .card-lift:focus-visible {
   transform: translateY(-4px);
   border-color: var(--accent);
-  box-shadow: 0 10px 40px -10px rgba(232, 169, 184, 0.35);
+  box-shadow: 0 10px 40px -10px var(--glow);
 }
 
 .container-x {
-  width: 100%;
-  max-width: 1150px;
+  width: 92%;
+  max-width: 1400px;
   margin-inline: auto;
-  padding-inline: 1rem;
+  padding-inline: 1.5rem;
 }
-@media (min-width: 640px) {
+@media (min-width: 768px) {
   .container-x {
-    padding-inline: 1.5rem;
+    padding-inline: 2.5rem;
   }
 }
 
@@ -88,9 +122,9 @@ body {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(232, 169, 184, 0.45),
-    rgba(184, 169, 232, 0.45),
-    rgba(143, 214, 192, 0.35),
+    color-mix(in srgb, var(--accent) 45%, transparent),
+    color-mix(in srgb, var(--lavender) 45%, transparent),
+    color-mix(in srgb, var(--mint) 35%, transparent),
     transparent
   );
 }

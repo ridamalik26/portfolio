@@ -9,7 +9,7 @@ function Row({ hidden }: { hidden: boolean }) {
           className="flex items-center gap-8 pr-8 font-display text-lg uppercase text-foreground sm:text-xl"
         >
           {item}
-          <span className="text-accent" aria-hidden="true">
+          <span className="text-accent-fg" aria-hidden="true">
             *
           </span>
         </li>

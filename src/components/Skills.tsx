@@ -85,7 +85,7 @@ export default function Skills() {
           >
             <h4 className="text-base font-bold leading-snug text-foreground">{c.title}</h4>
             <p className="mt-3 text-sm text-muted">
-              <span className="font-semibold text-accent">{c.issuer}</span> on {c.platform}
+              <span className="font-semibold text-accent-fg">{c.issuer}</span> on {c.platform}
             </p>
           </Reveal>
         ))}
