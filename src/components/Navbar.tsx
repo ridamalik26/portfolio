@@ -52,7 +52,7 @@ export default function Navbar() {
             <ThemeToggle />
           </li>
           <li>
-            <a href={site.resume} download className={buttonClass}>
+            <a href={site.resume} target="_blank" rel="noopener noreferrer" className={buttonClass}>
               Resume
             </a>
           </li>
@@ -102,7 +102,7 @@ export default function Navbar() {
                 <ThemeToggle withLabel className="justify-start rounded-md" />
               </li>
               <li className="px-3 pt-2">
-                <a href={site.resume} download className={`${buttonClass} w-full`}>
+                <a href={site.resume} target="_blank" rel="noopener noreferrer" className={`${buttonClass} w-full`}>
                   Resume
                 </a>
               </li>

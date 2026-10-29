@@ -1,5 +1,5 @@
 import { about } from "@/data/portfolio";
-import { accentSoft, accentTop } from "@/lib/accent";
+import { accentSoft } from "@/lib/accent";
 import { UiIcon } from "./icons";
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
@@ -11,34 +11,29 @@ export default function About() {
         {about.heading}
       </SectionHeading>
 
-      <Reveal className="rounded-2xl border border-border border-t-2 border-t-accent bg-card p-5 sm:p-6">
-        <h3 className="text-lg font-bold text-foreground">{about.storyTitle}</h3>
-        <div className="mt-3 grid gap-4 text-[15px] leading-relaxed text-muted sm:text-base md:grid-cols-2 md:gap-8">
-          {about.story.map((p) => (
-            <p key={p}>{p}</p>
-          ))}
-        </div>
-      </Reveal>
+      <div className="grid gap-4 lg:grid-cols-[minmax(0,7fr)_minmax(0,4fr)]">
+        <Reveal className="h-full rounded-2xl border border-border border-t-2 border-t-accent bg-card p-5 sm:p-6">
+          <h3 className="text-lg font-bold text-foreground">{about.storyTitle}</h3>
+          <div className="mt-3 space-y-4 text-[15px] leading-relaxed text-muted sm:text-base">
+            {about.story.map((p) => (
+              <p key={p}>{p}</p>
+            ))}
+          </div>
+        </Reveal>
 
-      <Reveal className="mb-4 mt-8">
-        <h3 className="text-lg font-bold text-foreground">{about.offTitle}</h3>
-      </Reveal>
-      <ul className="grid grid-cols-2 gap-4 lg:grid-cols-4">
-        {about.off.map((item, i) => (
-          <Reveal
-            as="li"
-            key={item.title}
-            delay={i * 0.07}
-            className={`card-lift h-full rounded-2xl border border-border border-t-2 bg-card p-4 ${accentTop[item.color]}`}
-          >
-            <span className={`inline-flex h-9 w-9 items-center justify-center rounded-xl ${accentSoft[item.color]}`}>
-              <UiIcon name={item.icon} size={18} />
-            </span>
-            <h4 className="mt-3 text-base font-bold text-foreground">{item.title}</h4>
-            <p className="mt-1 text-sm leading-relaxed text-muted">{item.text}</p>
-          </Reveal>
-        ))}
-      </ul>
+        <Reveal
+          delay={0.08}
+          className="h-full rounded-2xl border border-border border-t-2 border-t-lavender bg-card p-5 sm:p-6"
+        >
+          <span className={`inline-flex h-10 w-10 items-center justify-center rounded-xl ${accentSoft.lavender}`}>
+            <UiIcon name="graduation" size={20} />
+          </span>
+          <h3 className="mt-4 text-lg font-bold text-foreground">{about.educationTitle}</h3>
+          <p className="mt-2 text-base font-semibold text-foreground">{about.education.school}</p>
+          <p className="text-[15px] text-muted">{about.education.program}</p>
+          <p className="text-sm text-muted">{about.education.year}</p>
+        </Reveal>
+      </div>
     </section>
   );
 }

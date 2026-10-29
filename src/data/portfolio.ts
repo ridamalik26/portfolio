@@ -63,10 +63,10 @@ export const hero = {
   greeting: "Hi, I'm",
   gradientName: "Rida Malik",
   stats: [
-    { icon: "rocket", label: "10+ Projects", color: "pink" },
-    { icon: "building", label: "3 Teams", color: "lavender" },
-    { icon: "code", label: "Python to Production", color: "mint" },
-  ] as { icon: string; label: string; color: Accent }[],
+    { value: "10+", label: "Projects" },
+    { value: "3", label: "Teams" },
+    { value: "AI + Full-Stack", label: "Focus" },
+  ],
   bubbles: ["Python", "Flask", "Next.js", "Flutter"],
   role: "AI Automation & Full-Stack Developer",
   motto: "Turning messy workflows into smart systems.",
@@ -98,38 +98,17 @@ export const ticker = [
 
 export const about = {
   heading: "About",
-  storyTitle: "The Story",
+  storyTitle: "Profile",
   story: [
-    "I am a Software Engineering graduate from DHA Suffa University, Karachi (2026).",
-    "I build AI-powered applications and automations, and I have worked on internal tools for an oil and gas company, products for a US-based automation startup, and cross-platform mobile apps.",
+    "I am an AI automation developer who also builds full-stack products. I design n8n workflows, CRM automations and LLM integrations, and I ship web and mobile apps with Flask, Next.js and Flutter.",
+    "I have built internal tools for an oil and gas company, products for a US-based automation startup, and cross-platform mobile apps.",
   ],
-  offTitle: "When I'm Not Coding",
-  off: [
-    {
-      icon: "tv",
-      color: "pink",
-      title: "Netflix nights",
-      text: "Always halfway through a new series",
-    },
-    {
-      icon: "users",
-      color: "lavender",
-      title: "Going out",
-      text: "Catching up with friends and trying new places",
-    },
-    {
-      icon: "coffee",
-      color: "peach",
-      title: "Café hopping",
-      text: "Finding the best coffee spots in Karachi",
-    },
-    {
-      icon: "car",
-      color: "mint",
-      title: "Long drives",
-      text: "Music on, city lights, clear head",
-    },
-  ] as { icon: string; color: Accent; title: string; text: string }[],
+  educationTitle: "Education",
+  education: {
+    school: "DHA Suffa University, Karachi",
+    program: "Software Engineering",
+    year: "Graduated 2026",
+  },
 };
 
 export const experience: Company[] = [
@@ -521,36 +500,6 @@ export const projects: Project[] = [
   },
 ];
 
-export const doing = {
-  title: "What I'm Doing",
-  cards: [
-    {
-      icon: "workflow",
-      color: "mint",
-      title: "AI Automation",
-      text: "n8n, GoHighLevel and LLM workflows",
-    },
-    {
-      icon: "code",
-      color: "pink",
-      title: "Full-Stack Web",
-      text: "Next.js, Flask and Supabase",
-    },
-    {
-      icon: "smartphone",
-      color: "peach",
-      title: "Mobile Apps",
-      text: "Flutter and Firebase",
-    },
-    {
-      icon: "plug",
-      color: "lavender",
-      title: "CRM and API Integrations",
-      text: "HubSpot, GHL and webhooks",
-    },
-  ] as { icon: string; color: Accent; title: string; text: string }[],
-};
-
 export const projectFilters: { id: "all" | ProjectCategory; label: string }[] = [
   { id: "all", label: "All" },
   { id: "ai", label: "AI & Automation" },
@@ -559,120 +508,58 @@ export const projectFilters: { id: "all" | ProjectCategory; label: string }[] = 
   { id: "ml", label: "ML" },
 ];
 
-export type Level = "Expert" | "Advanced" | "Intermediate";
-
-// Bar fill for each level label.
-export const levelPercent: Record<Level, number> = {
-  Expert: 95,
-  Advanced: 80,
-  Intermediate: 60,
-};
-
 export type SkillGroup = {
   name: string;
   icon: string;
   color: Accent;
-  span?: 2;
-  skills: { name: string; level: Level }[];
-  rows?: { label: string; items: string[] }[];
+  items: string[];
 };
 
 export const skills = {
   title: "Skills",
   groups: [
     {
+      name: "Languages",
+      icon: "code",
+      color: "pink",
+      items: ["Python", "TypeScript", "JavaScript", "Dart", "Java", "SQL"],
+    },
+    {
       name: "Backend",
       icon: "server",
       color: "mint",
-      skills: [
-        { name: "Python", level: "Expert" },
-        { name: "Flask", level: "Expert" },
-        { name: "REST APIs", level: "Expert" },
-        { name: "Node.js", level: "Advanced" },
-        { name: "Express", level: "Advanced" },
-        { name: "Docker", level: "Intermediate" },
-        { name: "Linux", level: "Intermediate" },
-      ],
+      items: ["Flask", "Node.js", "Express", "REST APIs"],
     },
     {
       name: "AI & Automation",
       icon: "bot",
       color: "lavender",
-      skills: [
-        { name: "n8n", level: "Expert" },
-        { name: "GoHighLevel", level: "Expert" },
-        { name: "LLM integration (Groq, Gemini, LLaMA)", level: "Advanced" },
-        { name: "Prompt engineering", level: "Advanced" },
-        { name: "HubSpot API", level: "Advanced" },
-        { name: "GitHub Actions", level: "Advanced" },
-        { name: "Webhooks", level: "Advanced" },
-      ],
+      items: ["LLMs", "Groq", "Gemini", "n8n", "GoHighLevel", "scikit-learn"],
     },
     {
-      name: "Frontend",
-      icon: "code",
-      color: "pink",
-      skills: [
-        { name: "Next.js", level: "Advanced" },
-        { name: "TypeScript", level: "Advanced" },
-        { name: "JavaScript", level: "Advanced" },
-        { name: "Tailwind CSS", level: "Advanced" },
-        { name: "HTML & CSS", level: "Advanced" },
-        { name: "React", level: "Intermediate" },
-        { name: "Framer Motion", level: "Intermediate" },
-      ],
-    },
-    {
-      name: "Mobile",
+      name: "Frontend & Mobile",
       icon: "smartphone",
       color: "peach",
-      skills: [
-        { name: "Flutter", level: "Expert" },
-        { name: "Dart", level: "Expert" },
-        { name: "Riverpod", level: "Advanced" },
-        { name: "Provider", level: "Advanced" },
-        { name: "Hive", level: "Intermediate" },
-        { name: "Go Router", level: "Intermediate" },
-        { name: "SQLite", level: "Advanced" },
-      ],
+      items: ["Next.js", "React", "Tailwind CSS", "Flutter"],
     },
     {
-      name: "Data & ML",
-      icon: "chart",
+      name: "Databases",
+      icon: "database",
       color: "mint",
-      span: 2,
-      skills: [
-        { name: "scikit-learn", level: "Advanced" },
-        { name: "Pandas", level: "Advanced" },
-        { name: "NumPy", level: "Advanced" },
-        { name: "SQL", level: "Advanced" },
-        { name: "PostgreSQL", level: "Advanced" },
-        { name: "Supabase", level: "Advanced" },
-        { name: "MongoDB", level: "Intermediate" },
-        { name: "Machine learning models", level: "Advanced" },
-      ],
-      rows: [
-        {
-          label: "Supervised Learning",
-          items: [
-            "Linear Regression",
-            "Logistic Regression",
-            "Decision Trees",
-            "Random Forest",
-            "Gradient Boosting",
-            "Support Vector Machines",
-            "K-Nearest Neighbors",
-          ],
-        },
-        {
-          label: "Unsupervised Learning",
-          items: ["K-Means Clustering", "Hierarchical Clustering", "PCA"],
-        },
-      ],
+      items: ["Supabase", "PostgreSQL", "MySQL", "MongoDB", "Firebase"],
+    },
+    {
+      name: "Tools",
+      icon: "wrench",
+      color: "pink",
+      items: ["Contabo", "Git", "GitHub", "Android Studio", "IntelliJ IDEA", "Figma", "Canva"],
     },
   ] as SkillGroup[],
-  certificationsTitle: "Certifications",
-  certifications: [
+};
+
+export const certifications = {
+  title: "Certifications",
+  items: [
     {
       title: "Introduction to Artificial Intelligence (AI)",
       issuer: "IBM",
@@ -688,17 +575,6 @@ export const skills = {
       issuer: "Scrimba",
       platform: "Coursera",
     },
-  ],
-  toolsTitle: "Tools I Use",
-  tools: [
-    "VS Code",
-    "Claude Code",
-    "OpenCode",
-    "n8n",
-    "GoHighLevel",
-    "Supabase",
-    "Vercel",
-    "GitHub",
   ],
 };
 
