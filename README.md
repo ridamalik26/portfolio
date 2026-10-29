@@ -32,13 +32,3 @@ Import the repo on Vercel. No extra configuration is needed.
 
 
 The avatar and browser icons are already generated. To regenerate the icons after changing public/avatar.png, run `node scripts/generate-icons.mjs`.
-
-## Contact form
-
-The contact form submits through Formspree. Create a form at formspree.io, copy its ID (the part after `/f/`), then add it to `.env.local` locally and to the project's Environment Variables on Vercel:
-
-```
-NEXT_PUBLIC_FORMSPREE_ID=your_form_id
-```
-
-Without it the form shows a message asking visitors to email you directly.

@@ -5,7 +5,9 @@ import ExperienceStrip from "@/components/ExperienceStrip";
 import Hero from "@/components/Hero";
 import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
+import Testimonials from "@/components/Testimonials";
 import Ticker from "@/components/Ticker";
+import { testimonials } from "@/data/portfolio";
 
 function Divider() {
   return <div aria-hidden="true" className="section-divider container-x" />;
@@ -26,6 +28,12 @@ export default function Home() {
       <Divider />
       <Certifications />
       <Divider />
+      {testimonials.length > 0 && (
+        <>
+          <Testimonials />
+          <Divider />
+        </>
+      )}
       <Contact />
     </main>
   );
