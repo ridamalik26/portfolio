@@ -99,14 +99,14 @@ body {
 }
 
 .container-x {
-  width: 92%;
-  max-width: 1400px;
+  width: 94%;
+  max-width: 1500px;
   margin-inline: auto;
-  padding-inline: 1.5rem;
+  padding-inline: 0.75rem;
 }
 @media (min-width: 768px) {
   .container-x {
-    padding-inline: 2.5rem;
+    padding-inline: 1.25rem;
   }
 }
 

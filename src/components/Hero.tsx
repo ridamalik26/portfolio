@@ -2,7 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { hero, site } from "@/data/portfolio";
-import { accentSoft } from "@/lib/accent";
+import { accentText } from "@/lib/accent";
 import Avatar from "./Avatar";
 import { TechIcon, UiIcon } from "./icons";
 
@@ -31,7 +31,7 @@ export default function Hero() {
       aria-labelledby="hero-title"
       className="container-x flex min-h-[calc(100svh-4rem)] items-center py-10 lg:py-6"
     >
-      <div className="grid w-full items-center gap-10 lg:grid-cols-2 lg:gap-12">
+      <div className="grid w-full items-center gap-10 lg:grid-cols-2 lg:gap-10">
         <div className="text-center lg:text-left">
           <motion.p
             {...fade(0)}
@@ -44,21 +44,21 @@ export default function Hero() {
           <motion.h1
             id="hero-title"
             {...fade(0.08)}
-            className="mt-5 font-display text-4xl leading-[1.08] tracking-tight text-foreground lg:text-[56px]"
+            className="mt-5 font-display text-4xl leading-[1.08] tracking-tight text-foreground lg:text-[56px] xl:text-[64px]"
           >
             {hero.greeting}
             <span className="text-gradient block">{hero.gradientName}</span>
           </motion.h1>
 
-          <motion.p {...fade(0.16)} className="mt-4 text-xl font-semibold text-lavender-fg">
+          <motion.p {...fade(0.16)} className="mt-4 text-xl font-semibold text-lavender-fg xl:text-2xl">
             {hero.role}
           </motion.p>
-          <motion.p {...fade(0.2)} className="mt-1 text-base font-medium text-accent-fg">
+          <motion.p {...fade(0.2)} className="mt-1 text-base font-medium text-accent-fg xl:text-lg">
             {hero.motto}
           </motion.p>
           <motion.p
             {...fade(0.24)}
-            className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-muted lg:mx-0"
+            className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-muted lg:mx-0 xl:max-w-2xl xl:text-lg"
           >
             {hero.intro}
           </motion.p>
@@ -80,18 +80,16 @@ export default function Hero() {
             {hero.stats.map((s) => (
               <li
                 key={s.label}
-                className="inline-flex items-center gap-2 rounded-full border border-border bg-card py-1.5 pl-1.5 pr-3.5 text-sm font-medium text-foreground"
+                className="inline-flex items-center gap-2 rounded-full border border-foreground/20 bg-transparent px-3.5 py-2 text-sm font-medium text-foreground"
               >
-                <span className={`inline-flex h-7 w-7 items-center justify-center rounded-full ${accentSoft[s.color]}`}>
-                  <UiIcon name={s.icon} size={14} />
-                </span>
+                <UiIcon name={s.icon} size={16} className={accentText[s.color]} />
                 {s.label}
               </li>
             ))}
           </motion.ul>
         </div>
 
-        <motion.div {...fade(0.15)} className="relative mx-auto w-full max-w-[430px] xl:max-w-[500px]">
+        <motion.div {...fade(0.15)} className="relative mx-auto w-full max-w-[430px] xl:max-w-[540px]">
           <div
             aria-hidden="true"
             className="blob absolute inset-0 scale-105 bg-gradient-to-br from-accent/45 via-lavender/35 to-mint/20 blur-3xl"
