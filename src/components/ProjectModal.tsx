@@ -3,7 +3,9 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { useEffect, useRef } from "react";
 import type { Project } from "@/data/portfolio";
+import { FaGithub, UiIcon } from "./icons";
 import ProjectImage from "./ProjectImage";
+import Tag from "./Tag";
 
 const FOCUSABLE =
   'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
@@ -61,7 +63,7 @@ export default function ProjectModal({
   }, [onClose]);
 
   const linkClass =
-    "inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold transition-colors";
+    "inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-colors";
 
   return (
     <motion.div
@@ -107,7 +109,7 @@ export default function ProjectModal({
           )}
           <h3
             id="project-modal-title"
-            className="mt-1 font-display text-3xl uppercase leading-tight text-foreground sm:text-4xl"
+            className="mt-1 font-display text-2xl uppercase leading-tight text-foreground sm:text-3xl"
           >
             {project.name}
           </h3>
@@ -115,7 +117,7 @@ export default function ProjectModal({
             {project.description}
           </p>
 
-          <h4 className="mt-8 font-display text-lg uppercase text-accent">Key Features</h4>
+          <h4 className="mt-6 text-lg font-bold text-lavender">Key Features</h4>
           <ul className="mt-3 space-y-2">
             {project.features.map((f) => (
               <li key={f} className="flex gap-3 text-sm leading-relaxed text-muted sm:text-base">
@@ -127,11 +129,8 @@ export default function ProjectModal({
 
           <ul className="mt-6 flex flex-wrap gap-2" aria-label="Tech stack">
             {project.stack.map((s) => (
-              <li
-                key={s}
-                className="rounded-full border border-border bg-background px-3 py-1 text-xs font-medium text-muted"
-              >
-                {s}
+              <li key={s}>
+                <Tag label={s} />
               </li>
             ))}
           </ul>
@@ -150,6 +149,11 @@ export default function ProjectModal({
                       : "border border-border text-foreground hover:border-accent hover:text-accent"
                   }`}
                 >
+                  {l.label === "Live Demo" ? (
+                    <UiIcon name="globe" size={16} />
+                  ) : (
+                    <FaGithub size={16} aria-hidden="true" />
+                  )}
                   {l.label}
                 </a>
               ))}

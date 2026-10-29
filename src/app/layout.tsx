@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Archivo_Black, Inter } from "next/font/google";
+import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 import { site } from "@/data/portfolio";
 import "./globals.css";
 
@@ -54,7 +56,17 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${archivo.variable} ${inter.variable} antialiased`}>
-      <body className="min-h-screen overflow-x-hidden">{children}</body>
+      <body className="min-h-screen overflow-x-hidden">
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-accent focus:px-4 focus:py-2 focus:text-background"
+        >
+          Skip to content
+        </a>
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
