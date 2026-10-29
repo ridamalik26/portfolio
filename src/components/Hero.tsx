@@ -91,7 +91,7 @@ export default function Hero() {
           </motion.ul>
         </div>
 
-        <motion.div {...fade(0.15)} className="relative mx-auto w-full max-w-[400px]">
+        <motion.div {...fade(0.15)} className="relative mx-auto w-full max-w-[430px]">
           <div
             aria-hidden="true"
             className="blob absolute inset-0 scale-105 bg-gradient-to-br from-accent/45 via-lavender/35 to-mint/20 blur-3xl"

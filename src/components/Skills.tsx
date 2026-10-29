@@ -34,7 +34,9 @@ export default function Skills() {
           <Reveal
             key={g.name}
             delay={(i % 3) * 0.07}
-            className={`card-lift h-full rounded-2xl border border-border border-t-2 bg-card p-5 ${accentTop[g.color]}`}
+            className={`card-lift h-full rounded-2xl border border-border border-t-2 bg-card p-5 ${accentTop[g.color]} ${
+              g.span === 3 ? "md:col-span-2 lg:col-span-3" : g.span === 2 ? "md:col-span-2" : ""
+            }`}
           >
             <div className="flex items-center gap-3">
               <span className={`inline-flex h-9 w-9 items-center justify-center rounded-xl ${accentSoft[g.color]}`}>
@@ -49,16 +51,20 @@ export default function Skills() {
                 ))}
               </ul>
             )}
-            {g.rows?.map((row) => (
-              <div key={row.label} className="mt-4">
-                <p className="text-xs font-semibold uppercase tracking-wider text-muted">{row.label}</p>
-                <ul className="mt-2 flex flex-wrap gap-2">
-                  {row.items.map((item) => (
-                    <Pill key={item} label={item} color={g.color} />
-                  ))}
-                </ul>
+            {g.rows && (
+              <div className="grid gap-x-8 md:grid-cols-2">
+                {g.rows.map((row) => (
+                  <div key={row.label} className="mt-4">
+                    <p className="text-xs font-semibold uppercase tracking-wider text-muted">{row.label}</p>
+                    <ul className="mt-2 flex flex-wrap gap-2">
+                      {row.items.map((item) => (
+                        <Pill key={item} label={item} color={g.color} />
+                      ))}
+                    </ul>
+                  </div>
+                ))}
               </div>
-            ))}
+            )}
           </Reveal>
         ))}
       </div>

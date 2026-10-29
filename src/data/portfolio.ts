@@ -1,4 +1,4 @@
-﻿// All site content lives here. Edit this file to update text, links, projects,
+// All site content lives here. Edit this file to update text, links, projects,
 // experience and skills without touching any component.
 
 export type Accent = "pink" | "lavender" | "mint" | "peach";
@@ -117,7 +117,7 @@ export const about = {
     {
       icon: "coffee",
       color: "peach",
-      title: "CafÃ© hopping",
+      title: "Café hopping",
       text: "Finding the best coffee spots in Karachi",
     },
     {
@@ -339,7 +339,7 @@ export const tagCategories = {
 export const projects: Project[] = [
   {
     slug: "smart-solar-advisor",
-    short: "AI solar sizing, cost estimates and vendor matching.",
+    short: "AI solar sizing and vendor match",
     name: "Smart Solar Advisor",
     tagline: "Final Year Project",
     description:
@@ -364,7 +364,7 @@ export const projects: Project[] = [
   },
   {
     slug: "multi-vendor-ecommerce",
-    short: "Customer, vendor and admin apps on one Node.js backend.",
+    short: "Customer, vendor, admin apps",
     name: "Multi-Vendor E-Commerce Platform",
     description:
       "A complete marketplace with separate apps for customers, vendors and admins, all running on one Node.js backend.",
@@ -393,7 +393,7 @@ export const projects: Project[] = [
   },
   {
     slug: "compass",
-    short: "Savings goals with an AI coach tied to real bank activity.",
+    short: "AI coach for savings goals",
     name: "Compass",
     tagline: "AI Financial Goals Tracker",
     description:
@@ -414,7 +414,7 @@ export const projects: Project[] = [
   },
   {
     slug: "profolio",
-    short: "AI job matching and a tidy job search tracker.",
+    short: "AI job matching and tracking",
     name: "ProFolio",
     tagline: "AI Career Companion",
     description:
@@ -430,7 +430,7 @@ export const projects: Project[] = [
   },
   {
     slug: "answerdesk",
-    short: "Client portal for an answering service, synced with HubSpot.",
+    short: "Client portal synced to HubSpot",
     name: "AnswerDesk",
     description:
       "A client portal for an answering service business, synced with HubSpot CRM.",
@@ -448,7 +448,7 @@ export const projects: Project[] = [
   },
   {
     slug: "mediremind",
-    short: "Medicine reminders so you never miss a dose.",
+    short: "Never miss a medicine dose",
     name: "MediRemind",
     description:
       "A medicine reminder app that makes sure you never miss a dose.",
@@ -474,7 +474,7 @@ export const projects: Project[] = [
   },
   {
     slug: "kharcha",
-    short: "Offline expense tracker with a fintech feel.",
+    short: "Offline expense tracker",
     name: "Kharcha",
     description:
       "An offline expense tracker with a clean fintech-style design.",
@@ -491,7 +491,7 @@ export const projects: Project[] = [
   },
   {
     slug: "taskflow",
-    short: "Simple, clean task manager for your day.",
+    short: "Clean task manager",
     name: "TaskFlow",
     description: "A simple, clean task manager to organize your day.",
     features: [
@@ -514,6 +514,7 @@ export type SkillGroup = {
   name: string;
   icon: string;
   color: Accent;
+  span?: 2 | 3;
   items?: string[];
   rows?: { label: string; items: string[] }[];
 };
@@ -531,29 +532,6 @@ export const skills = {
         "scikit-learn",
         "Pandas",
         "NumPy",
-      ],
-    },
-    {
-      name: "Machine Learning",
-      icon: "chart",
-      color: "pink",
-      rows: [
-        {
-          label: "Supervised Learning",
-          items: [
-            "Linear Regression",
-            "Logistic Regression",
-            "Decision Trees",
-            "Random Forest",
-            "Gradient Boosting",
-            "Support Vector Machines",
-            "K-Nearest Neighbors",
-          ],
-        },
-        {
-          label: "Unsupervised Learning",
-          items: ["K-Means Clustering", "Hierarchical Clustering", "PCA"],
-        },
       ],
     },
     {
@@ -576,6 +554,30 @@ export const skills = {
       items: ["Python", "TypeScript", "JavaScript", "Dart", "SQL"],
     },
     {
+      name: "Machine Learning",
+      icon: "chart",
+      color: "pink",
+      span: 3,
+      rows: [
+        {
+          label: "Supervised Learning",
+          items: [
+            "Linear Regression",
+            "Logistic Regression",
+            "Decision Trees",
+            "Random Forest",
+            "Gradient Boosting",
+            "Support Vector Machines",
+            "K-Nearest Neighbors",
+          ],
+        },
+        {
+          label: "Unsupervised Learning",
+          items: ["K-Means Clustering", "Hierarchical Clustering", "PCA"],
+        },
+      ],
+    },
+    {
       name: "Frameworks",
       icon: "layers",
       color: "pink",
@@ -584,6 +586,7 @@ export const skills = {
     {
       name: "Data & Infra",
       icon: "database",
+      span: 2,
       color: "lavender",
       items: [
         "PostgreSQL",
@@ -656,5 +659,5 @@ export const contact = {
 };
 
 export const footer = {
-  text: "Â© 2026 Rida Malik. Crafted with intent.",
+  text: "© 2026 Rida Malik. Crafted with intent.",
 };
