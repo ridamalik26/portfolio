@@ -5,10 +5,12 @@ import { useEffect, useRef, useState } from "react";
 export default function ProjectImage({
   slug,
   name,
+  compact = false,
   className = "",
 }: {
   slug: string;
   name: string;
+  compact?: boolean;
   className?: string;
 }) {
   const [failed, setFailed] = useState(false);
@@ -21,14 +23,18 @@ export default function ProjectImage({
   }, []);
 
   return (
-    <div className={`relative aspect-[16/10] w-full overflow-hidden bg-card ${className}`}>
+    <div
+      className={`relative w-full overflow-hidden bg-card ${compact ? "h-[140px]" : "aspect-[16/10]"} ${className}`}
+    >
       {failed ? (
         <div
           role="img"
           aria-label={`${name} preview placeholder`}
-          className="flex h-full w-full items-center justify-center bg-gradient-to-br from-accent/25 via-accent/10 to-transparent p-6 text-center"
+          className="flex h-full w-full items-center justify-center bg-gradient-to-br from-accent/25 via-lavender/15 to-transparent p-4 text-center"
         >
-          <span className="font-display text-2xl uppercase leading-tight text-accent sm:text-3xl">
+          <span
+            className={`font-display uppercase leading-tight text-accent ${compact ? "text-base" : "text-2xl"}`}
+          >
             {name}
           </span>
         </div>

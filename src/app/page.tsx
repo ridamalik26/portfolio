@@ -1,33 +1,29 @@
 import About from "@/components/About";
 import Contact from "@/components/Contact";
-import Skills from "@/components/Skills";
-import Experience from "@/components/Experience";
-import Footer from "@/components/Footer";
+import ExperienceStrip from "@/components/ExperienceStrip";
 import Hero from "@/components/Hero";
-import Navbar from "@/components/Navbar";
 import Projects from "@/components/Projects";
+import Skills from "@/components/Skills";
 import Ticker from "@/components/Ticker";
+
+function Divider() {
+  return <div aria-hidden="true" className="section-divider container-x" />;
+}
 
 export default function Home() {
   return (
-    <>
-      <a
-        href="#main"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-accent focus:px-4 focus:py-2 focus:text-background"
-      >
-        Skip to content
-      </a>
-      <Navbar />
-      <main id="main">
-        <Hero />
-        <Ticker />
-        <About />
-        <Experience />
-        <Projects />
-        <Skills />
-        <Contact />
-      </main>
-      <Footer />
-    </>
+    <main id="main">
+      <Hero />
+      <Ticker />
+      <About />
+      <Divider />
+      <ExperienceStrip />
+      <Divider />
+      <Projects />
+      <Divider />
+      <Skills />
+      <Divider />
+      <Contact />
+    </main>
   );
 }

@@ -3,7 +3,7 @@ import { contact, footer } from "@/data/portfolio";
 export default function Footer() {
   return (
     <footer className="border-t border-border">
-      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 py-8 text-sm text-muted sm:px-6 md:flex-row">
+      <div className="container-x flex flex-col items-center justify-between gap-4 py-8 text-sm text-muted md:flex-row">
         <p>{footer.text}</p>
         <ul className="flex gap-6">
           {contact.cards.map((c) => (

@@ -1,17 +1,19 @@
-// All site content lives here. Edit this file to update text, links, projects,
+﻿// All site content lives here. Edit this file to update text, links, projects,
 // experience and skills without touching any component.
+
+export type Accent = "pink" | "lavender" | "mint" | "peach";
 
 export type LinkItem = { label: string; href: string };
 
 export type Project = {
   slug: string; // image is served from /projects/<slug>.png
   name: string;
+  short: string;
   tagline?: string;
   description: string;
   features: string[];
   stack: string[];
   links: LinkItem[];
-  featured: boolean;
 };
 
 export type WorkItem = {
@@ -25,6 +27,8 @@ export type Company = {
   name: string;
   role: string;
   dates: string;
+  summary: string;
+  color: Accent;
   stack: string[];
   work: WorkItem[];
 };
@@ -40,19 +44,27 @@ export const site = {
   url: "https://ridamalik.vercel.app",
   resume: "/Rida_Malik_CV.pdf",
   avatar: "/avatar.png",
-  avatarAlt:
-    "Illustrated portrait of Rida Malik standing in front of her name",
+  avatarAlt: "Illustrated portrait of Rida Malik",
 };
 
 export const nav = [
-  { label: "About", href: "#about" },
-  { label: "Experience", href: "#experience" },
-  { label: "Projects", href: "#projects" },
-  { label: "Skills", href: "#skills" },
-  { label: "Contact", href: "#contact" },
+  { label: "About", href: "/#about" },
+  { label: "Experience", href: "/experience" },
+  { label: "Projects", href: "/#projects" },
+  { label: "Skills", href: "/#skills" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export const hero = {
+  badge: "Available for AI and automation roles",
+  greeting: "Hi, I'm",
+  gradientName: "Rida Malik",
+  stats: [
+    { icon: "rocket", label: "10+ Projects", color: "pink" },
+    { icon: "building", label: "3 Companies", color: "lavender" },
+    { icon: "bot", label: "AI + Automation", color: "mint" },
+  ] as { icon: string; label: string; color: Accent }[],
+  bubbles: ["Python", "Flask", "Next.js", "Flutter"],
   role: "AI & Automation Developer",
   motto: "Automate the boring, build the bold.",
   intro:
@@ -91,18 +103,30 @@ export const about = {
   offTitle: "When I'm Not Coding",
   off: [
     {
-      title: "Building for fun",
-      text: "Weekend experiments with AI tools and automations",
+      icon: "tv",
+      color: "pink",
+      title: "Netflix nights",
+      text: "Always halfway through a new series",
     },
     {
-      title: "Problem solving",
-      text: "Sharpening my logic with Java and DSA practice",
+      icon: "users",
+      color: "lavender",
+      title: "Going out",
+      text: "Catching up with friends and trying new places",
     },
     {
-      title: "Always learning",
-      text: "Currently diving deeper into machine learning and AI agents",
+      icon: "coffee",
+      color: "peach",
+      title: "CafÃ© hopping",
+      text: "Finding the best coffee spots in Karachi",
     },
-  ],
+    {
+      icon: "car",
+      color: "mint",
+      title: "Long drives",
+      text: "Music on, city lights, clear head",
+    },
+  ] as { icon: string; color: Accent; title: string; text: string }[],
 };
 
 export const experience: Company[] = [
@@ -110,6 +134,9 @@ export const experience: Company[] = [
     name: "Cnergyico",
     role: "Software Engineering Intern",
     dates: "Sep 2026 to Present",
+    summary:
+      "Industrial monitoring, commodity pricing and project dashboards with an AI assistant.",
+    color: "pink",
     stack: ["Flask", "Python", "Groq API", "LDAP", "SQLite", "JavaScript"],
     work: [
       {
@@ -131,7 +158,7 @@ export const experience: Company[] = [
         ],
       },
       {
-        title: "MI Advance, Market Intelligence",
+        title: "MI Advance (Market Intelligence)",
         stack: ["Flask", "Python"],
         bullets: [
           "Built an oil market dashboard tracking refinery production, OMC stocks, supply flow and tanker plans",
@@ -152,6 +179,9 @@ export const experience: Company[] = [
     name: "Arius Automation",
     role: "Full Stack Developer (Remote)",
     dates: "Apr 2026 to Sep 2026",
+    summary:
+      "n8n automations, a CRM dashboard and a multi-tenant database platform.",
+    color: "lavender",
     stack: [
       "n8n",
       "Gemini",
@@ -234,26 +264,82 @@ export const experience: Company[] = [
     name: "Softgrid Solutions",
     role: "Mobile Application Development Intern (Remote)",
     dates: "Jun 2026 to Jul 2026",
+    summary:
+      "Cross-platform Flutter apps with local storage and Node.js backends.",
+    color: "peach",
     stack: ["Flutter", "Dart", "Node.js", "MongoDB"],
     work: [
       {
         title: "Flutter Apps",
-        bullets: ["Built 3 Flutter apps: MediRemind, Kharcha and TaskFlow"],
+        bullets: [
+          "Built cross-platform Flutter apps with local storage and Node.js backends, focused on clean UI and state management.",
+        ],
       },
     ],
   },
 ];
 
+export const experienceSection = {
+  title: "Experience",
+  cta: "View Full Experience",
+};
+
+export const experiencePage = {
+  title: "Experience",
+  intro:
+    "Where I have worked and what I built there, from industrial dashboards to AI automations and mobile apps.",
+};
+
 export const projectsSection = {
   title: "Stuff I've Built",
   hint: "Tap a card to explore",
-  featuredLabel: "Featured",
-  moreLabel: "More Projects",
+  maxTags: 4,
+};
+
+// Tag colors: AI tags lavender, backend mint, mobile peach, everything else pink.
+export const tagCategories = {
+  ai: [
+    "Groq",
+    "Groq API",
+    "Gemini",
+    "Gemini API",
+    "LLaMA",
+    "scikit-learn",
+    "Text-to-Speech",
+    "Plaid",
+  ],
+  backend: [
+    "Flask",
+    "Python",
+    "Node.js",
+    "Express",
+    "PostgreSQL",
+    "PostgreSQL 16",
+    "Supabase",
+    "SQLite",
+    "MongoDB",
+    "MongoDB Atlas",
+    "JWT",
+    "Cloudinary",
+    "HubSpot API",
+    "Redis/BullMQ",
+    "LDAP",
+  ],
+  mobile: [
+    "Flutter",
+    "Flutter Web",
+    "Dart",
+    "Riverpod",
+    "Provider",
+    "Go Router",
+    "Hive",
+  ],
 };
 
 export const projects: Project[] = [
   {
     slug: "smart-solar-advisor",
+    short: "AI solar sizing, cost estimates and vendor matching.",
     name: "Smart Solar Advisor",
     tagline: "Final Year Project",
     description:
@@ -275,10 +361,10 @@ export const projects: Project[] = [
         href: "https://github.com/ridamalik26/Smart_Solar_Advisor_",
       },
     ],
-    featured: true,
   },
   {
     slug: "multi-vendor-ecommerce",
+    short: "Customer, vendor and admin apps on one Node.js backend.",
     name: "Multi-Vendor E-Commerce Platform",
     description:
       "A complete marketplace with separate apps for customers, vendors and admins, all running on one Node.js backend.",
@@ -304,10 +390,10 @@ export const projects: Project[] = [
       { label: "Admin Panel", href: "https://github.com/ridamalik26/shop_web" },
       { label: "Backend", href: "https://github.com/ridamalik26/Shop_backend" },
     ],
-    featured: true,
   },
   {
     slug: "compass",
+    short: "Savings goals with an AI coach tied to real bank activity.",
     name: "Compass",
     tagline: "AI Financial Goals Tracker",
     description:
@@ -325,10 +411,10 @@ export const projects: Project[] = [
       { label: "GitHub", href: "https://github.com/ridamalik26/compass" },
       { label: "Live Demo", href: "https://compass-phi-one.vercel.app" },
     ],
-    featured: true,
   },
   {
     slug: "profolio",
+    short: "AI job matching and a tidy job search tracker.",
     name: "ProFolio",
     tagline: "AI Career Companion",
     description:
@@ -341,10 +427,10 @@ export const projects: Project[] = [
     ],
     stack: ["Flutter", "Riverpod", "Supabase", "Gemini API"],
     links: [{ label: "GitHub", href: "https://github.com/ridamalik26/profolio" }],
-    featured: true,
   },
   {
     slug: "answerdesk",
+    short: "Client portal for an answering service, synced with HubSpot.",
     name: "AnswerDesk",
     description:
       "A client portal for an answering service business, synced with HubSpot CRM.",
@@ -359,10 +445,10 @@ export const projects: Project[] = [
     links: [
       { label: "Live Demo", href: "https://answerdesk-portal.vercel.app" },
     ],
-    featured: false,
   },
   {
     slug: "mediremind",
+    short: "Medicine reminders so you never miss a dose.",
     name: "MediRemind",
     description:
       "A medicine reminder app that makes sure you never miss a dose.",
@@ -385,10 +471,10 @@ export const projects: Project[] = [
     links: [
       { label: "GitHub", href: "https://github.com/ridamalik26/MediRemind" },
     ],
-    featured: false,
   },
   {
     slug: "kharcha",
+    short: "Offline expense tracker with a fintech feel.",
     name: "Kharcha",
     description:
       "An offline expense tracker with a clean fintech-style design.",
@@ -402,10 +488,10 @@ export const projects: Project[] = [
     ],
     stack: ["Flutter", "Provider", "SQLite"],
     links: [{ label: "GitHub", href: "https://github.com/ridamalik26/kharcha" }],
-    featured: false,
   },
   {
     slug: "taskflow",
+    short: "Simple, clean task manager for your day.",
     name: "TaskFlow",
     description: "A simple, clean task manager to organize your day.",
     features: [
@@ -421,23 +507,59 @@ export const projects: Project[] = [
     links: [
       { label: "GitHub", href: "https://github.com/ridamalik26/taskflow" },
     ],
-    featured: false,
   },
 ];
+
+export type SkillGroup = {
+  name: string;
+  icon: string;
+  color: Accent;
+  items?: string[];
+  rows?: { label: string; items: string[] }[];
+};
 
 export const skills = {
   title: "Skills",
   groups: [
     {
       name: "AI & ML",
+      icon: "brain",
+      color: "lavender",
       items: [
         "LLM integration (Groq, Gemini, LLaMA)",
         "Prompt engineering",
         "scikit-learn",
+        "Pandas",
+        "NumPy",
+      ],
+    },
+    {
+      name: "Machine Learning",
+      icon: "chart",
+      color: "pink",
+      rows: [
+        {
+          label: "Supervised Learning",
+          items: [
+            "Linear Regression",
+            "Logistic Regression",
+            "Decision Trees",
+            "Random Forest",
+            "Gradient Boosting",
+            "Support Vector Machines",
+            "K-Nearest Neighbors",
+          ],
+        },
+        {
+          label: "Unsupervised Learning",
+          items: ["K-Means Clustering", "Hierarchical Clustering", "PCA"],
+        },
       ],
     },
     {
       name: "Automation",
+      icon: "workflow",
+      color: "mint",
       items: [
         "n8n",
         "GoHighLevel",
@@ -449,14 +571,20 @@ export const skills = {
     },
     {
       name: "Languages",
+      icon: "code",
+      color: "peach",
       items: ["Python", "TypeScript", "JavaScript", "Dart", "SQL"],
     },
     {
       name: "Frameworks",
+      icon: "layers",
+      color: "pink",
       items: ["Flask", "Next.js", "Flutter", "Node.js", "Express"],
     },
     {
       name: "Data & Infra",
+      icon: "database",
+      color: "lavender",
       items: [
         "PostgreSQL",
         "Supabase",
@@ -468,7 +596,7 @@ export const skills = {
         "Linux",
       ],
     },
-  ],
+  ] as SkillGroup[],
   certificationsTitle: "Certifications",
   certifications: [
     {
@@ -528,5 +656,5 @@ export const contact = {
 };
 
 export const footer = {
-  text: "© 2026 Rida Malik. Crafted with intent.",
+  text: "Â© 2026 Rida Malik. Crafted with intent.",
 };
