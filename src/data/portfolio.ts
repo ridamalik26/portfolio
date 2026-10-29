@@ -617,7 +617,9 @@ export const skills = {
         { name: "TypeScript", level: "Advanced" },
         { name: "JavaScript", level: "Advanced" },
         { name: "Tailwind CSS", level: "Advanced" },
+        { name: "HTML & CSS", level: "Advanced" },
         { name: "React", level: "Intermediate" },
+        { name: "Framer Motion", level: "Intermediate" },
       ],
     },
     {

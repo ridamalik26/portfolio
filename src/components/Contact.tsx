@@ -21,13 +21,13 @@ export default function Contact() {
       </SectionHeading>
 
       <div className="grid gap-4 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
-        <ul className="grid gap-4">
+        <ul className="grid grid-rows-3 gap-4">
           {contact.cards.map((c, i) => (
-            <Reveal as="li" key={c.id} delay={i * 0.07}>
+            <Reveal as="li" key={c.id} delay={i * 0.07} className="h-full">
               <a
                 href={c.href}
                 {...(c.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                className={`card-lift flex items-center gap-4 rounded-2xl border border-border border-t-2 bg-card p-5 ${accentTop[color[c.id]]}`}
+                className={`card-lift flex h-full items-center gap-4 rounded-2xl border border-border border-t-2 bg-card p-5 ${accentTop[color[c.id]]}`}
               >
                 <span className={`inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ${accentSoft[color[c.id]]}`}>
                   <CardIcon id={c.id} />
