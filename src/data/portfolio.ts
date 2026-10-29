@@ -56,19 +56,19 @@ export const nav = [
 ];
 
 export const hero = {
-  badge: "Available for AI and automation roles",
+  badge: "Open to AI automation and full-stack roles",
   greeting: "Hi, I'm",
   gradientName: "Rida Malik",
   stats: [
     { icon: "rocket", label: "10+ Projects", color: "pink" },
-    { icon: "building", label: "3 Companies", color: "lavender" },
-    { icon: "bot", label: "AI + Automation", color: "mint" },
+    { icon: "building", label: "3 Teams", color: "lavender" },
+    { icon: "code", label: "Python to Production", color: "mint" },
   ] as { icon: string; label: string; color: Accent }[],
   bubbles: ["Python", "Flask", "Next.js", "Flutter"],
-  role: "AI & Automation Developer",
-  motto: "Automate the boring, build the bold.",
+  role: "AI Automation & Full-Stack Developer",
+  motto: "Turning messy workflows into smart systems.",
   intro:
-    "I build LLM-powered apps, workflow automations, and full-stack products with Python, Flask, Next.js, and Flutter.",
+    "AI automation developer who also builds full-stack products: n8n workflows, CRM automations and LLM integrations, plus web and mobile apps with Flask, Next.js and Flutter.",
   primaryCta: "See My Work",
   secondaryCta: "Download Resume",
 };
