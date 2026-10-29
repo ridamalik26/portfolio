@@ -3,6 +3,7 @@ import { accentPill, accentSoft, accentTop } from "@/lib/accent";
 import { TechIcon, UiIcon } from "./icons";
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
+import SkillBar from "./SkillBar";
 
 const toolIcon: Record<string, string> = {
   "VS Code": "code",
@@ -35,7 +36,7 @@ export default function Skills() {
             key={g.name}
             delay={(i % 3) * 0.07}
             className={`card-lift h-full rounded-2xl border border-border border-t-2 bg-card p-5 ${accentTop[g.color]} ${
-              g.span === 3 ? "md:col-span-2 lg:col-span-3" : g.span === 2 ? "md:col-span-2" : ""
+              g.span === 2 ? "md:col-span-2" : ""
             }`}
           >
             <div className="flex items-center gap-3">
@@ -44,15 +45,18 @@ export default function Skills() {
               </span>
               <h3 className="text-lg font-bold text-foreground">{g.name}</h3>
             </div>
-            {g.items && (
-              <ul className="mt-4 flex flex-wrap gap-2">
-                {g.items.map((item) => (
-                  <Pill key={item} label={item} color={g.color} />
-                ))}
-              </ul>
-            )}
+
+            <ul
+              className={`mt-5 grid gap-x-8 gap-y-3.5 ${g.span === 2 ? "md:grid-cols-2" : ""}`}
+              aria-label={`${g.name} skills`}
+            >
+              {g.skills.map((s, k) => (
+                <SkillBar key={s.name} name={s.name} level={s.level} color={g.color} index={k} />
+              ))}
+            </ul>
+
             {g.rows && (
-              <div className="grid gap-x-8 md:grid-cols-2">
+              <div className="mt-5 grid gap-x-8 border-t border-border pt-1 md:grid-cols-2">
                 {g.rows.map((row) => (
                   <div key={row.label} className="mt-4">
                     <p className="text-xs font-semibold uppercase tracking-wider text-muted">{row.label}</p>

@@ -5,10 +5,13 @@ export type Accent = "pink" | "lavender" | "mint" | "peach";
 
 export type LinkItem = { label: string; href: string };
 
+export type ProjectCategory = "ai" | "web" | "mobile" | "ml";
+
 export type Project = {
   slug: string; // image is served from /projects/<slug>.png
   name: string;
   short: string;
+  categories: ProjectCategory[];
   tagline?: string;
   description: string;
   features: string[];
@@ -340,6 +343,7 @@ export const projects: Project[] = [
   {
     slug: "smart-solar-advisor",
     short: "AI solar sizing and vendor match",
+    categories: ["ai", "ml", "mobile"],
     name: "Smart Solar Advisor",
     tagline: "Final Year Project",
     description:
@@ -365,6 +369,7 @@ export const projects: Project[] = [
   {
     slug: "multi-vendor-ecommerce",
     short: "Customer, vendor, admin apps",
+    categories: ["web", "mobile"],
     name: "Multi-Vendor E-Commerce Platform",
     description:
       "A complete marketplace with separate apps for customers, vendors and admins, all running on one Node.js backend.",
@@ -394,6 +399,7 @@ export const projects: Project[] = [
   {
     slug: "compass",
     short: "AI coach for savings goals",
+    categories: ["ai", "web"],
     name: "Compass",
     tagline: "AI Financial Goals Tracker",
     description:
@@ -415,6 +421,7 @@ export const projects: Project[] = [
   {
     slug: "profolio",
     short: "AI job matching and tracking",
+    categories: ["ai", "mobile"],
     name: "ProFolio",
     tagline: "AI Career Companion",
     description:
@@ -431,6 +438,7 @@ export const projects: Project[] = [
   {
     slug: "answerdesk",
     short: "Client portal synced to HubSpot",
+    categories: ["web", "ai"],
     name: "AnswerDesk",
     description:
       "A client portal for an answering service business, synced with HubSpot CRM.",
@@ -449,6 +457,7 @@ export const projects: Project[] = [
   {
     slug: "mediremind",
     short: "Never miss a medicine dose",
+    categories: ["mobile"],
     name: "MediRemind",
     description:
       "A medicine reminder app that makes sure you never miss a dose.",
@@ -475,6 +484,7 @@ export const projects: Project[] = [
   {
     slug: "kharcha",
     short: "Offline expense tracker",
+    categories: ["mobile"],
     name: "Kharcha",
     description:
       "An offline expense tracker with a clean fintech-style design.",
@@ -492,6 +502,7 @@ export const projects: Project[] = [
   {
     slug: "taskflow",
     short: "Clean task manager",
+    categories: ["mobile"],
     name: "TaskFlow",
     description: "A simple, clean task manager to organize your day.",
     features: [
@@ -510,12 +521,59 @@ export const projects: Project[] = [
   },
 ];
 
+export const doing = {
+  title: "What I'm Doing",
+  cards: [
+    {
+      icon: "workflow",
+      color: "mint",
+      title: "AI Automation",
+      text: "n8n, GoHighLevel and LLM workflows",
+    },
+    {
+      icon: "code",
+      color: "pink",
+      title: "Full-Stack Web",
+      text: "Next.js, Flask and Supabase",
+    },
+    {
+      icon: "smartphone",
+      color: "peach",
+      title: "Mobile Apps",
+      text: "Flutter and Firebase",
+    },
+    {
+      icon: "plug",
+      color: "lavender",
+      title: "CRM and API Integrations",
+      text: "HubSpot, GHL and webhooks",
+    },
+  ] as { icon: string; color: Accent; title: string; text: string }[],
+};
+
+export const projectFilters: { id: "all" | ProjectCategory; label: string }[] = [
+  { id: "all", label: "All" },
+  { id: "ai", label: "AI & Automation" },
+  { id: "web", label: "Full-Stack Web" },
+  { id: "mobile", label: "Mobile" },
+  { id: "ml", label: "ML" },
+];
+
+export type Level = "Expert" | "Advanced" | "Intermediate";
+
+// Bar fill for each level label.
+export const levelPercent: Record<Level, number> = {
+  Expert: 95,
+  Advanced: 80,
+  Intermediate: 60,
+};
+
 export type SkillGroup = {
   name: string;
   icon: string;
   color: Accent;
-  span?: 2 | 3;
-  items?: string[];
+  span?: 2;
+  skills: { name: string; level: Level }[];
   rows?: { label: string; items: string[] }[];
 };
 
@@ -523,41 +581,76 @@ export const skills = {
   title: "Skills",
   groups: [
     {
-      name: "AI & ML",
-      icon: "brain",
-      color: "lavender",
-      items: [
-        "LLM integration (Groq, Gemini, LLaMA)",
-        "Prompt engineering",
-        "scikit-learn",
-        "Pandas",
-        "NumPy",
-      ],
-    },
-    {
-      name: "Automation",
-      icon: "workflow",
+      name: "Backend",
+      icon: "server",
       color: "mint",
-      items: [
-        "n8n",
-        "GoHighLevel",
-        "HubSpot API",
-        "GitHub Actions",
-        "REST APIs",
-        "Webhooks",
+      skills: [
+        { name: "Python", level: "Expert" },
+        { name: "Flask", level: "Expert" },
+        { name: "REST APIs", level: "Expert" },
+        { name: "Node.js", level: "Advanced" },
+        { name: "Express", level: "Advanced" },
+        { name: "Docker", level: "Intermediate" },
+        { name: "Linux", level: "Intermediate" },
       ],
     },
     {
-      name: "Languages",
-      icon: "code",
-      color: "peach",
-      items: ["Python", "TypeScript", "JavaScript", "Dart", "SQL"],
+      name: "AI & Automation",
+      icon: "bot",
+      color: "lavender",
+      skills: [
+        { name: "n8n", level: "Expert" },
+        { name: "GoHighLevel", level: "Expert" },
+        { name: "LLM integration (Groq, Gemini, LLaMA)", level: "Advanced" },
+        { name: "Prompt engineering", level: "Advanced" },
+        { name: "HubSpot API", level: "Advanced" },
+        { name: "GitHub Actions", level: "Advanced" },
+        { name: "Webhooks", level: "Advanced" },
+      ],
     },
     {
-      name: "Machine Learning",
-      icon: "chart",
+      name: "Frontend",
+      icon: "code",
       color: "pink",
-      span: 3,
+      skills: [
+        { name: "Next.js", level: "Advanced" },
+        { name: "TypeScript", level: "Advanced" },
+        { name: "JavaScript", level: "Advanced" },
+        { name: "Tailwind CSS", level: "Advanced" },
+        { name: "HTML & CSS", level: "Advanced" },
+        { name: "React", level: "Intermediate" },
+        { name: "Framer Motion", level: "Intermediate" },
+      ],
+    },
+    {
+      name: "Mobile",
+      icon: "smartphone",
+      color: "peach",
+      skills: [
+        { name: "Flutter", level: "Expert" },
+        { name: "Dart", level: "Expert" },
+        { name: "Riverpod", level: "Advanced" },
+        { name: "Provider", level: "Advanced" },
+        { name: "Hive", level: "Intermediate" },
+        { name: "Go Router", level: "Intermediate" },
+        { name: "SQLite", level: "Advanced" },
+      ],
+    },
+    {
+      name: "Data & ML",
+      icon: "chart",
+      color: "mint",
+      span: 2,
+      skills: [
+        { name: "scikit-learn", level: "Advanced" },
+        { name: "Pandas", level: "Advanced" },
+        { name: "NumPy", level: "Advanced" },
+        { name: "SQL", level: "Advanced" },
+        { name: "PostgreSQL", level: "Advanced" },
+        { name: "Supabase", level: "Advanced" },
+        { name: "MongoDB", level: "Intermediate" },
+        { name: "Machine learning models", level: "Advanced" },
+      ],
       rows: [
         {
           label: "Supervised Learning",
@@ -575,28 +668,6 @@ export const skills = {
           label: "Unsupervised Learning",
           items: ["K-Means Clustering", "Hierarchical Clustering", "PCA"],
         },
-      ],
-    },
-    {
-      name: "Frameworks",
-      icon: "layers",
-      color: "pink",
-      items: ["Flask", "Next.js", "Flutter", "Node.js", "Express"],
-    },
-    {
-      name: "Data & Infra",
-      icon: "database",
-      span: 2,
-      color: "lavender",
-      items: [
-        "PostgreSQL",
-        "Supabase",
-        "SQLite",
-        "MongoDB",
-        "Docker",
-        "Vercel",
-        "Git",
-        "Linux",
       ],
     },
   ] as SkillGroup[],
@@ -633,6 +704,22 @@ export const skills = {
 
 export const contact = {
   heading: "Let's build something",
+  form: {
+    title: "Send a message",
+    nameLabel: "Name",
+    emailLabel: "Email",
+    messageLabel: "Message",
+    namePlaceholder: "Your name",
+    emailPlaceholder: "you@example.com",
+    messagePlaceholder: "Tell me about your project or role",
+    submit: "Send Message",
+    sending: "Sending",
+    success: "Thanks! Your message was sent. I will get back to you soon.",
+    error:
+      "Something went wrong and your message was not sent. Please try again or email me directly.",
+    notConfigured:
+      "The contact form is not set up yet. Please email me directly.",
+  },
   cards: [
     {
       id: "email",
