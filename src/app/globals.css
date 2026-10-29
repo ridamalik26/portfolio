@@ -88,4 +88,10 @@ body {
   .card-lift:focus-visible {
     transform: none;
   }
+  .marquee {
+    overflow-x: auto;
+  }
+  .marquee-track {
+    animation: none;
+  }
 }
