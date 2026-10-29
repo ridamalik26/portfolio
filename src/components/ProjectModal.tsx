@@ -67,7 +67,7 @@ export default function ProjectModal({
 
   return (
     <motion.div
-      className="fixed inset-0 z-50 flex items-end justify-center bg-black/75 backdrop-blur-sm sm:items-center sm:p-6"
+      className="fixed inset-0 z-50 flex items-end justify-center bg-[var(--overlay)] backdrop-blur-sm sm:items-center sm:p-6"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -85,14 +85,14 @@ export default function ProjectModal({
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={reduce ? { opacity: 0 } : { opacity: 0, y: 24, scale: 0.98 }}
         transition={{ duration: reduce ? 0 : 0.3, ease: [0.22, 1, 0.36, 1] }}
-        className="relative max-h-[92vh] w-full max-w-3xl overflow-y-auto overscroll-contain rounded-t-3xl border border-border bg-card shadow-[0_20px_80px_-20px_rgba(232,169,184,0.25)] sm:rounded-3xl"
+        className="relative max-h-[92vh] w-full max-w-3xl overflow-y-auto overscroll-contain rounded-t-3xl border border-border bg-card shadow-[0_20px_80px_-20px_var(--glow)] sm:rounded-3xl"
       >
         <button
           ref={closeRef}
           type="button"
           onClick={onClose}
           aria-label="Close project details"
-          className="absolute right-3 top-3 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full bg-background/80 text-foreground backdrop-blur transition-colors hover:bg-accent hover:text-background"
+          className="absolute right-3 top-3 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full bg-background/80 text-foreground backdrop-blur transition-colors hover:bg-accent hover:text-on-accent"
         >
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true">
             <path d="M6 6l12 12M18 6L6 18" />
@@ -103,7 +103,7 @@ export default function ProjectModal({
 
         <div className="p-6 sm:p-8">
           {project.tagline && (
-            <p className="text-xs font-semibold uppercase tracking-wider text-accent">
+            <p className="text-xs font-semibold uppercase tracking-wider text-accent-fg">
               {project.tagline}
             </p>
           )}
@@ -117,7 +117,7 @@ export default function ProjectModal({
             {project.description}
           </p>
 
-          <h4 className="mt-6 text-lg font-bold text-lavender">Key Features</h4>
+          <h4 className="mt-6 text-lg font-bold text-lavender-fg">Key Features</h4>
           <ul className="mt-3 space-y-2">
             {project.features.map((f) => (
               <li key={f} className="flex gap-3 text-sm leading-relaxed text-muted sm:text-base">
@@ -145,8 +145,8 @@ export default function ProjectModal({
                   rel="noopener noreferrer"
                   className={`${linkClass} ${
                     i === 0
-                      ? "bg-accent text-background hover:bg-accent-deep"
-                      : "border border-border text-foreground hover:border-accent hover:text-accent"
+                      ? "bg-accent text-on-accent hover:bg-accent-deep"
+                      : "border border-border text-foreground hover:border-accent hover:text-accent-fg"
                   }`}
                 >
                   {l.label === "Live Demo" ? (

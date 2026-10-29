@@ -10,7 +10,7 @@ export default function Avatar({ className = "" }: { className?: string }) {
       <div
         role="img"
         aria-label={site.avatarAlt}
-        className={`flex items-end justify-center font-display text-8xl text-accent/60 ${className}`}
+        className={`flex items-end justify-center font-display text-8xl text-accent-fg/60 ${className}`}
       >
         <span className="pb-8">{site.logo}</span>
       </div>

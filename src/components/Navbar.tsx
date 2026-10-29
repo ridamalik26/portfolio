@@ -5,9 +5,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { nav, site } from "@/data/portfolio";
+import ThemeToggle from "./ThemeToggle";
 
 const buttonClass =
-  "inline-flex items-center justify-center rounded-full bg-accent px-5 py-2 text-sm font-semibold text-background transition-colors hover:bg-accent-deep";
+  "inline-flex items-center justify-center rounded-full bg-accent px-5 py-2 text-sm font-semibold text-on-accent transition-colors hover:bg-accent-deep";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -28,7 +29,7 @@ export default function Navbar() {
         <Link
           href="/"
           aria-label={`${site.name}, home`}
-          className="font-display text-2xl tracking-tight text-accent"
+          className="font-display text-2xl tracking-tight text-accent-fg"
         >
           {site.logo}
         </Link>
@@ -39,8 +40,8 @@ export default function Navbar() {
               <Link
                 href={item.href}
                 aria-current={current(item.href)}
-                className={`text-sm font-medium transition-colors hover:text-accent ${
-                  item.href === pathname ? "text-accent" : "text-muted"
+                className={`text-sm font-medium transition-colors hover:text-accent-fg ${
+                  item.href === pathname ? "text-accent-fg" : "text-muted"
                 }`}
               >
                 {item.label}
@@ -48,15 +49,20 @@ export default function Navbar() {
             </li>
           ))}
           <li>
+            <ThemeToggle />
+          </li>
+          <li>
             <a href={site.resume} download className={buttonClass}>
               Resume
             </a>
           </li>
         </ul>
 
+        <div className="flex items-center gap-1 md:hidden">
+        <ThemeToggle />
         <button
           type="button"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-md text-foreground md:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-md text-foreground"
           aria-expanded={open}
           aria-controls="mobile-menu"
           aria-label={open ? "Close menu" : "Open menu"}
@@ -66,6 +72,7 @@ export default function Navbar() {
             {open ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
           </svg>
         </button>
+        </div>
       </nav>
 
       <AnimatePresence>
@@ -85,12 +92,15 @@ export default function Navbar() {
                     href={item.href}
                     aria-current={current(item.href)}
                     onClick={() => setOpen(false)}
-                    className="block rounded-md px-3 py-3 text-lg font-medium text-foreground hover:bg-card hover:text-accent"
+                    className="block rounded-md px-3 py-3 text-lg font-medium text-foreground hover:bg-card hover:text-accent-fg"
                   >
                     {item.label}
                   </Link>
                 </li>
               ))}
+              <li>
+                <ThemeToggle withLabel className="justify-start rounded-md" />
+              </li>
               <li className="px-3 pt-2">
                 <a href={site.resume} download className={`${buttonClass} w-full`}>
                   Resume

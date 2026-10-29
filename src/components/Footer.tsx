@@ -11,7 +11,7 @@ export default function Footer() {
               <a
                 href={c.href}
                 {...(c.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                className="transition-colors hover:text-accent"
+                className="transition-colors hover:text-accent-fg"
               >
                 {c.label}
               </a>

@@ -34,7 +34,7 @@ export default function ExperienceStrip() {
       <Reveal className="mt-8 flex justify-center">
         <Link
           href="/experience"
-          className="inline-flex items-center justify-center rounded-full bg-accent px-6 py-3 text-sm font-semibold text-background transition-colors hover:bg-accent-deep"
+          className="inline-flex items-center justify-center rounded-full bg-accent px-6 py-3 text-sm font-semibold text-on-accent transition-colors hover:bg-accent-deep"
         >
           {experienceSection.cta}
         </Link>

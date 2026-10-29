@@ -5,7 +5,7 @@ import Reveal from "./Reveal";
 import Tag from "./Tag";
 
 const linkClass =
-  "inline-flex items-center gap-2 rounded-full border border-border px-3.5 py-1.5 text-sm font-medium text-foreground transition-colors hover:border-accent hover:text-accent";
+  "inline-flex items-center gap-2 rounded-full border border-border px-3.5 py-1.5 text-sm font-medium text-foreground transition-colors hover:border-accent hover:text-accent-fg";
 
 export default function ExperienceTimeline() {
   return (
