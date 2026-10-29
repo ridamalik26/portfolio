@@ -30,19 +30,19 @@ export default function Hero() {
           <span className="block md:inline">Malik</span>
         </motion.h1>
 
-        <div className="relative z-10 -mt-[10vw] grid items-end gap-8 md:-mt-[5vw] md:grid-cols-[1fr_minmax(260px,380px)_1fr] md:gap-6 xl:-mt-16">
-          <motion.div {...fade(0.2)} className="order-2 text-center md:order-1 md:pb-16 md:text-left">
+        <div className="relative z-10 -mt-[16vw] grid pb-10 lg:pb-0 items-end gap-8 md:-mt-[9vw] md:grid-cols-2 lg:grid-cols-[1fr_minmax(260px,380px)_1fr] lg:gap-6 xl:-mt-32">
+          <motion.div {...fade(0.2)} className="order-2 text-center md:text-left lg:order-1 lg:pb-16">
             <p className="font-display text-2xl uppercase leading-tight text-foreground sm:text-3xl">
               {hero.role}
             </p>
             <p className="mt-3 text-lg font-medium text-accent">{hero.motto}</p>
           </motion.div>
 
-          <motion.div {...fade(0.1)} className="order-1 mx-auto w-[70%] max-w-[380px] md:order-2 md:w-full">
+          <motion.div {...fade(0.1)} className="order-1 mx-auto w-[70%] max-w-[380px] md:col-span-2 md:w-[55%] lg:order-2 lg:col-span-1 lg:w-full">
             <Avatar />
           </motion.div>
 
-          <motion.div {...fade(0.3)} className="order-3 text-center md:pb-16 md:text-left">
+          <motion.div {...fade(0.3)} className="order-3 text-center md:text-left lg:pb-16">
             <p className="mx-auto max-w-md text-base leading-relaxed text-muted md:mx-0">
               {hero.intro}
             </p>
