@@ -1,50 +1,125 @@
-﻿# Rida Malik Portfolio
+# Rida Malik
 
-Next.js (App Router), TypeScript, Tailwind CSS and framer-motion.
+### AI Automation & Full-Stack Developer
 
-All content lives in `src/data/portfolio.ts`. Edit that file to change text, links, projects, experience and skills.
+Building modern web applications, mobile experiences, and automation solutions.
 
-## Run
+<p align="left">
+  <a href="https://portfolio-ridam.vercel.app/">
+    <img src="https://img.shields.io/badge/Portfolio-Visit%20Website-ec4899?style=for-the-badge" alt="Portfolio">
+  </a>
+  <a href="https://github.com/ridamalik26">
+    <img src="https://img.shields.io/badge/GitHub-Profile-181717?style=for-the-badge&logo=github" alt="GitHub">
+  </a>
+  <a href="https://linkedin.com/in/rida-malik-softwareengineer">
+    <img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin" alt="LinkedIn">
+  </a>
+</p>
 
-```bash
-npm install
-npm run dev
-npm run build
-```
+---
 
-## Files to add to `public/`
+## Overview
 
-- `Rida_Malik_CV.pdf`
-- `projects/smart-solar-advisor.png`
-- `projects/multi-vendor-ecommerce.png`
-- `projects/compass.png`
-- `projects/profolio.png`
-- `projects/answerdesk.png`
-- `projects/mediremind.png`
-- `projects/kharcha.png`
-- `projects/taskflow.png`
+Welcome to my personal portfolio repository.
 
-Missing project images show a pink placeholder with the project name.
+This website serves as a central place to explore my professional journey, technical expertise, projects, and certifications.
 
-## Deploy
+Designed with a dark charcoal and pink aesthetic, the portfolio focuses on a clean user experience, responsive layouts, and interactive elements. It also includes a live testimonials feature powered by Supabase.
 
-Import the repo on Vercel. No extra configuration is needed.
+**Live Website:** [portfolio-ridam.vercel.app](https://portfolio-ridam.vercel.app/)
 
+## Features
 
-The avatar and browser icons are already generated. To regenerate the icons after changing public/avatar.png, run `node scripts/generate-icons.mjs`.
+### Design & Experience
+- Modern dark charcoal and pink design.
+- Light and dark themes with dark mode as the default.
+- Fully responsive layout, from mobile devices to wide desktop screens.
+- Smooth animations and transitions.
+- Hero section featuring an avatar and floating technology icons.
 
-## Testimonials (Supabase)
+### Portfolio Sections
+- **About:** Personal introduction and professional background.
+- **Experience:** Dedicated page highlighting professional experience.
+- **Projects:** Interactive project gallery with category-based filtering.
+- **Skills:** Technical skills organized into groups.
+- **Certifications:** Professional certifications and achievements.
+- **Resume:** Downloadable PDF resume.
+- **Contact:** Gmail compose link and copy-email functionality.
 
-Visitors can leave a note that appears after you approve it.
+### Projects Gallery
 
-1. Create a project at supabase.com and run `supabase/testimonials.sql` in the SQL editor.
-2. Copy the project URL and anon key into `.env.local` (see `.env.example`) and into the Environment Variables on Vercel:
+Projects can be filtered by the following categories:
 
-```
-NEXT_PUBLIC_SUPABASE_URL=...
-NEXT_PUBLIC_SUPABASE_ANON_KEY=...
-```
+| Category | Description |
+|---|---|
+| All | View all projects |
+| AI & Automation | AI-powered applications and automation solutions |
+| Full-Stack Web | Full-stack web applications |
+| Mobile | Mobile application development |
+| ML | Machine learning projects |
 
-3. To publish a note, open the `testimonials` table in the Supabase dashboard and set `approved` to true.
+Each project includes an interactive details modal with its description, features, technology stack, and GitHub link.
 
-Without these variables the Testimonials section and its navbar link are hidden.
+### Live Testimonials
+
+The portfolio includes a testimonials section connected to Supabase.
+
+- Visitors can submit testimonials through the website.
+- New submissions remain hidden until manually approved.
+- Approved testimonials are displayed on the portfolio.
+- A honeypot field helps prevent automated spam.
+- A one-submission-per-minute rate limit is implemented.
+
+## Tech Stack
+
+| Technology | Usage |
+|---|---|
+| [Next.js](https://nextjs.org/) | React framework using App Router |
+| [TypeScript](https://www.typescriptlang.org/) | Type-safe development |
+| [Tailwind CSS](https://tailwindcss.com/) | Utility-first styling |
+| [Framer Motion](https://motion.dev/) | Animations and interactions |
+| [next-themes](https://github.com/pacocoursey/next-themes) | Theme management |
+| [lucide-react](https://lucide.dev/) | Interface icons |
+| [react-icons](https://react-icons.github.io/react-icons/) | Additional icons |
+| [Supabase](https://supabase.com/) | Testimonials storage |
+| [Vercel](https://vercel.com/) | Deployment and hosting |
+
+## Screenshots
+
+Screenshots of the portfolio will be added below.
+
+| Hero Section | Projects |
+|---|---|
+| TODO: Add hero screenshot | TODO: Add projects screenshot |
+
+| Dark Mode | Light Mode |
+|---|---|
+| TODO: Add dark mode screenshot | TODO: Add light mode screenshot |
+
+### Mobile View
+
+TODO: Add mobile screenshot.
+
+## Project Structure
+
+```text
+portfolio/
+├── public/
+│   └── Resume PDF and static assets
+│
+├── src/
+│   ├── app/
+│   │   └── Application pages and routes
+│   │
+│   ├── components/
+│   │   └── Reusable UI components
+│   │
+│   └── data/
+│       └── portfolio.ts
+│
+├── supabase/
+│   └── testimonials.sql
+│
+├── .env.example
+├── package.json
+└── README.md
